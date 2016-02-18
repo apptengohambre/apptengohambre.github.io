@@ -1,0 +1,91 @@
+<div class="row">
+    <div class="col-md-12">
+        <h3 class="page-header">
+            {{ restaurant.name }}
+        </h3>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-6">
+        <h4 class="text-center page-header">Reserva</h4>
+
+        <p>
+            <strong>N° Personas:</strong>
+            <select class="form-control" ng-model="reservePeople">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7+">7+</option>
+            </select>
+        </p>
+
+        <p><strong>Horario:</strong></p>
+        <button class="btn btn-default {{ selectedSchedule == '1 PM' ? 'btn-warning' : '' }}" ng-click="selectSchedule('1 PM')">1 PM</button>
+        <button class="btn btn-default {{ selectedSchedule == '2 PM' ? 'btn-warning' : '' }}" ng-click="selectSchedule('2 PM')">2 PM</button>
+        <button class="btn btn-default {{ selectedSchedule == '3 PM' ? 'btn-warning' : '' }}" ng-click="selectSchedule('3 PM')">3 PM</button>
+        <button class="btn btn-default {{ selectedSchedule == '4 PM' ? 'btn-warning' : '' }}" ng-click="selectSchedule('4 PM')">4 PM</button>
+        <button class="btn btn-default {{ selectedSchedule == '5 PM' ? 'btn-warning' : '' }}" ng-click="selectSchedule('5 PM')">5 PM</button>
+        <button class="btn btn-default {{ selectedSchedule == '6 PM' ? 'btn-warning' : '' }}" ng-click="selectSchedule('6 PM')">6 PM</button>
+        <button class="btn btn-default {{ selectedSchedule == '7 PM' ? 'btn-warning' : '' }}" ng-click="selectSchedule('7 PM')">7 PM</button>
+        <button class="btn btn-default {{ selectedSchedule == '8 PM' ? 'btn-warning' : '' }}" ng-click="selectSchedule('8 PM')">8 PM</button>
+        <div class="text-center">
+            <div class="checkbox">
+                <label for="">
+                    <input type="checkbox" name="reserveTerms" ng-model="reserveTerms">
+                    Acepto los términos y condiciones.
+                </label>
+            </div>
+            <button ng-click="viewReserves()" class="btn btn-primary" ng-disabled="!selectedSchedule || !reserveTerms">Reservar</button>
+            <p class="text-danger">La reserva se realizará  para {{ reservePeople }} persona(s) a la(s) {{ selectedSchedule }}.</p>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <h4 class="text-center page-header">Carta</h4>
+        <table class="table">
+            <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Cantidad</th>
+                <th>Precio</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="item in restaurant.menu">
+                <td>{{ item.name }}</td>
+                <td>
+                    <select class="form-control" ng-model="quantity[$index]">
+                        <option value="0">0</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                    </select>
+                </td>
+                <td>S/.{{ item.price }}</td>
+            </tr>
+            <tr>
+                <th>Total</th>
+                <th>{{ getTotalItems() }}</th>
+                <th>S/. {{ getTotalPrice() }}</th>
+
+            </tr>
+            </tbody>
+        </table>
+        <div class="text-center">
+            <div class="checkbox">
+                <label for="">
+                    <input type="checkbox" name="payTerms" ng-model="payTerms">
+                    Acepto los términos y condiciones.
+                </label>
+            </div>
+            <button ng-click="viewReserves()" class="btn btn-primary" ng-disabled="!payTerms || getTotalItems() == 0 || getTotalPrice() == 0">Pagar</button>
+        </div>
+    </div>
+
+</div>

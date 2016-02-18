@@ -1,0 +1,98 @@
+<div ng-controller="searchController">
+    <div class="row section">
+        <div class="col-md-12">
+            <div class="center-block text-center">
+                <div class="row section">
+                    <div class="form-inline">
+
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label>¿DÓDE?</label>
+                                <select class="form-control">
+                                    <option ng-repeat="district in districts" value="{{ district.id }}">{{ district.name }}</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+
+                            <div class="form-group">
+                                <label>¿CUÁNDO?</label>
+                                <input type="date" class="form-control" placeholder="dd/mm/aaaa">
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label>¿QUÉ?</label>
+                                <select class="form-control">
+                                    <option ng-repeat="foodType in foodTypes" value="{{ foodType.id }}">{{ foodType.name }}</option>
+                                </select>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="row">
+                    <button type="submit" class="btn btn-primary btn-lg">
+                        <i class="fa fa-cutlery"></i>
+                        A comer
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-3">
+
+            <h5 class="page-header">Distrito</h5>
+            <div ng-repeat="district in districts" class="checkbox">
+                <label>
+                    <input type="checkbox" value="{{ district.id }}">
+                    {{ district.name }}
+                </label>
+            </div>
+            <h5 class=
+                        "page-header">Tipos de Comida</h5>
+            <div ng-repeat="foodType in foodTypes" class="checkbox">
+                <label>
+                    <input type="checkbox" value="{{ foodType.id }}">
+                    {{ foodType.name }}
+                </label>
+            </div>
+
+            <h5 class="page-header">Precio</h5>
+            <div ng-repeat="priceRange in priceRanges" class="checkbox">
+                <label>
+                    <input type="checkbox" value="{{ priceRange.id }}">
+                    {{ 'S/.' + priceRange.min + ' - S/.' + priceRange.max }}
+                </label>
+            </div>
+
+        </div>
+        <div class="col-md-9">
+                <div ng-repeat="restaurant in restaurants" class="paper-card">
+                    <div class="modal-header">
+                        <h4 class="modal-title">{{ restaurant.name }}</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <img ng-src="{{ restaurant.image }}" alt="{{ restaurant.name }}" class="img-responsive img-rounded">
+                            </div>
+                            <div class="col-md-8">
+                                <p><strong>Dirección: </strong>{{ restaurant.address }}</p>
+                                <p><strong>Teléfono: </strong>{{ restaurant.phone }}</p>
+                                <p><strong>Horario de Atencion: </strong>{{ restaurant.openingHours }}</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" ui-sref="home.restaurant({restaurantId: restaurant.id})">Entrar</button>
+                        <button type="button" class="btn btn-primary" ui-sref="home.restaurant.reserve({restaurantId: restaurant.id})">Reservar</button>
+                    </div>
+                </div>
+        </div>
+    </div>
+</div>

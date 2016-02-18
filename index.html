@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Tengo Hambre</title>
+
+    <!-- Bootstrap -->
+    <link href="assets/libs/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/libs/font-awesome/css/font-awesome.min.css">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="assets/libs/html5shiv/dist/html5shiv.min.js"></script>
+    <script src="assets/libs/respond/dest/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Custom -->
+    <link rel="stylesheet" href="assets/css/paper-theme.min.css">
+    <link rel="stylesheet" href="assets/css/tengohambre.css">
+</head>
+<body ng-app="tengoHambreApp">
+
+<div ui-view></div>
+
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="assets/libs/jquery/dist/jquery.min.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="assets/libs/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="assets/libs/angular/angular.min.js"></script>
+<script src="assets/libs/angular-ui-router/release/angular-ui-router.min.js"></script>
+<script src="assets/libs/oclazyload/dist/ocLazyLoad.min.js"></script>
+<script src="app/app.module.js"></script>
+<script src="app/app.routes.js"></script>
+</body>
+</html>

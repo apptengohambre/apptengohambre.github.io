@@ -1,0 +1,35 @@
+<div class="row">
+    <div class="col-md-12">
+        <h3 class="page-header">
+            {{ restaurant.name }} - Reservas
+        </h3>
+    </div>
+</div>
+
+<div class="row">
+    <table class="table table-condensed">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Usuario</th>
+                <th>Hora</th>
+                <th>Cant. Personas</th>
+                <th>Pagado</th>
+                <th>Ver Reserva</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="reserve in restaurant.reserves">
+                <td>{{ reserve.id }}</td>
+                <td>{{ reserve.user }}</td>
+                <td>{{ reserve.date }}</td>
+                <td>{{ reserve.people }}</td>
+                <td>{{ reserve.paid }}</td>
+                <td>
+                    <button class="btn btn-primary btn-xs" ui-sref="home.restaurant.reserve-detail({restaurantId: restaurant.id, reserveId: reserve.id})">Ver Reserva</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+</div>

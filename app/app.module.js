@@ -1,0 +1,1 @@
+var app = angular.module('tengoHambreApp', ['ui.router', 'oc.lazyLoad']);
