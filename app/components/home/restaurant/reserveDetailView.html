@@ -21,3 +21,43 @@
         <button class="btn btn-primary pull-right">Imprimir</button>
     </div>
 </div>
+<div class="row" ng-show="reserve.paid == 'Si'">
+    <div class="col-md-12">
+        <h5 class="page-header">Detalle de Orden pagada</h5>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Plato</th>
+                    <th>Cantidad</th>
+                    <th>Precio</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>plato 1</td>
+                    <td>1</td>
+                    <td>S/. 12</td>
+                </tr>
+                <tr>
+                    <td>plato 2</td>
+                    <td>3</td>
+                    <td>S/. 49</td>
+                </tr>
+                <tr>
+                    <td>plato 5</td>
+                    <td>10</td>
+                    <td>S/. 100</td>
+                </tr>
+                <tr>
+                    <td>plato 9</td>
+                    <td>1</td>
+                    <td>S/. 20</td>
+                </tr>
+                <tr>
+                    <th colspan="2" class="text-right">TOTAL</th>
+                    <th>S/. 181</th>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
